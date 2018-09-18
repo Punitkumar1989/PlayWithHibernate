@@ -9,8 +9,8 @@ import com.pk.hibernate.learn.entity.UserDetails;
 public class HibernateTest {
 public static void main(String[] args) {
 	UserDetails userDetails = new UserDetails();
-	userDetails.setUserId(1);
-	userDetails.setUserName("Punit");
+	userDetails.setUserId(2);
+	userDetails.setUserName("Suresh");
 	/*
 	 * Create Session Factory Object. 
 	 */
