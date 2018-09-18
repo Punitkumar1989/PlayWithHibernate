@@ -11,7 +11,7 @@ Email - punit.kumar1989@gmail.com
 <hibernate-configuration>
     <session-factory>
     <!-- SQL Dialect -->
-        <property name="dialect">org.hibernate.dialect.H2Dialect</property>
+        <property name="dialect">org.hibernate.dialect.DerbyDialect</property>
         
     <!--  Database Connection -->
         <property name="connection.driver_class">org.apache.derby.jdbc.ClientDriver</property>
