@@ -17,7 +17,7 @@ Email - punit.kumar1989@gmail.com
         <property name="connection.driver_class">org.apache.derby.jdbc.ClientDriver</property>
         <property name="connection.username">me</property>
         <property name="connection.password">password</property>
-        <property name="connection.url">jdbc:derby://localhost:1527/myHdb;create=true;DB_CLOSE_DELAY=-1;MVCC=TRUE</property>
+        <property name="connection.url">jdbc:derby://localhost:1527/myHdb;create=true;</property>
         
     <!-- Connection Pool Size -->
     	<property name="connection.pool_size">1</property>  
@@ -32,7 +32,7 @@ Email - punit.kumar1989@gmail.com
     	<property name="hbm2ddl.auto">create</property>
     	
     <!-- Names the annotated entity class -->
-    	<mapping class="org.hibernate.tutorial.annotations.Event" />
+    	<mapping class="com.pk.hibernate.learn.entity.UserDetails" />
       
     </session-factory>
 </hibernate-configuration>
