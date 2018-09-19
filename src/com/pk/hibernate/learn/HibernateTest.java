@@ -34,6 +34,18 @@ public static void main(String[] args) {
 	session.save(userDetails);
 	//Save the Transaction Object
 	session.getTransaction().commit();
+	session.close();
+	
+	//Fetching data from database through Hibernate
+	userDetails = null;
+	session = sessionFactory.openSession();
+	session.beginTransaction();
+	userDetails = (UserDetails)session.get(UserDetails.class, 2);
+	System.out.println("User Id - "+userDetails.getUserId());
+	System.out.println("User Name is - "+ userDetails.getUserName());
+	session.close();
+	
+	
 	
 }
 }

@@ -20,7 +20,7 @@ import javax.persistence.Transient;
 public class UserDetails {
 	@Id
 	private int userId;
-	@Transient  /* Wont allow to persist the field. */
+	// @Transient  /* Wont allow to persist the field. */
 	private String userName;
 	@Temporal(TemporalType.DATE)   /* Get the Date */
 	private Date joinedDate;
