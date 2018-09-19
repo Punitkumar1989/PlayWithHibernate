@@ -17,11 +17,12 @@ import com.pk.hibernate.learn.entity.UserDetails;
 public class HibernateTest {
 public static void main(String[] args) {
 	UserDetails userDetails = new UserDetails();
-	userDetails.setUserId(2);
+//	userDetails.setUserId(2);
 	userDetails.setUserName("Suresh");
-	userDetails.setJoinedDate(new Date());
-	userDetails.setAddress("Suresh's Address");
-	userDetails.setDescription("Suresh Description");
+	
+	UserDetails user2 = new UserDetails();
+	user2.setUserName("Punit");
+	
 	/*
 	 * Create Session Factory Object. 
 	 */
@@ -32,11 +33,12 @@ public static void main(String[] args) {
 	session.beginTransaction();
 	//Perform Transaction
 	session.save(userDetails);
+	session.save(user2);
 	//Save the Transaction Object
 	session.getTransaction().commit();
 	session.close();
 	
-	//Fetching data from database through Hibernate
+/*	//Fetching data from database through Hibernate
 	userDetails = null;
 	session = sessionFactory.openSession();
 	session.beginTransaction();
@@ -45,7 +47,7 @@ public static void main(String[] args) {
 	System.out.println("User Name is - "+ userDetails.getUserName());
 	session.close();
 	
-	
+	*/
 	
 }
 }
