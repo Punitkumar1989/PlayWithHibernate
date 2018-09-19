@@ -1,4 +1,12 @@
+/*
+ * @Author - Punit Kumar
+ * @Email - punit.kumar1989@gmail.com
+ */
+
+
 package com.pk.hibernate.learn;
+
+import java.util.Date;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,6 +19,9 @@ public static void main(String[] args) {
 	UserDetails userDetails = new UserDetails();
 	userDetails.setUserId(2);
 	userDetails.setUserName("Suresh");
+	userDetails.setJoinedDate(new Date());
+	userDetails.setAddress("Suresh's Address");
+	userDetails.setDescription("Suresh Description");
 	/*
 	 * Create Session Factory Object. 
 	 */
