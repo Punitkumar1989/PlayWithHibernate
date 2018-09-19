@@ -5,6 +5,7 @@
 
 package com.pk.hibernate.learn.entity;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,7 +20,17 @@ public class UserDetails {
 	private int userId;
 	// @Transient  /* Wont allow to persist the field. */
 	private String userName;
-	@Temporal(TemporalType.DATE)   /* Get the Date */
+	//@Temporal(TemporalType.DATE)   /* Get the Date */
+	@Embedded
+	private Address address;
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
 	public int getUserId() {
 		return userId;
