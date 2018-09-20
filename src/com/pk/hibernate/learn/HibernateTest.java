@@ -24,14 +24,16 @@ public static void main(String[] args) {
 	addr.setState("user home state");
 	addr.setStreet("user home street");
 	addr.setPinCode("user home Pin");
-	userDetails.setHomeAddress(addr);
 	
 	Address addr2 = new Address();
 	addr2.setCity("user office City");
 	addr2.setState("user office state");
 	addr2.setStreet("user office street");
 	addr2.setPinCode("user office Pin");
-	userDetails.setOfficeAddress(addr2);
+	
+	userDetails.getListOfAddress().add(addr);
+	userDetails.getListOfAddress().add(addr2);
+	
 	/*
 	 * Create Session Factory Object. 
 	 */
