@@ -48,6 +48,11 @@ public static void main(String[] args) {
 	//Save the Transaction Object
 	session.getTransaction().commit();
 	session.close();
-
+	
+	userDetails=null;
+	session = sessionFactory.openSession();
+	userDetails= (UserDetails)session.get(UserDetails.class, 1);
+	session.close();
+	System.out.println("size - "+userDetails.getListOfAddress().size());
 }
 }
