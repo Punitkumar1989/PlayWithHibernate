@@ -3,12 +3,25 @@ package com.pk.hibernate.learn.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 
 @Entity(name="VEHICLE")
 public class Vehicle {
 	@Id @GeneratedValue
 	private int vehicleId;
 	private String vehicleName;
+	@ManyToOne
+	@JoinTable(name="VEHICLE_USER")
+	private UserDetails user;
+
+	public UserDetails getUser() {
+		return user;
+	}
+
+	public void setUser(UserDetails user) {
+		this.user = user;
+	}
 
 	public int getVehicleId() {
 		return vehicleId;
