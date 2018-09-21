@@ -34,6 +34,8 @@ Email - punit.kumar1989@gmail.com
     <!-- Names the annotated entity class -->
     	<mapping class="com.pk.hibernate.learn.entity.UserDetails" />
     	<mapping class="com.pk.hibernate.learn.entity.Vehicle" />
+    	<mapping class="com.pk.hibernate.learn.entity.TwoWheeler" />
+    	<mapping class="com.pk.hibernate.learn.entity.FourWheeler" />
       
     </session-factory>
 </hibernate-configuration>

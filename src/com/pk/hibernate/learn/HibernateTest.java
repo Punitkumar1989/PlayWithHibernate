@@ -9,25 +9,24 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.pk.hibernate.learn.entity.UserDetails;
+import com.pk.hibernate.learn.entity.FourWheeler;
+import com.pk.hibernate.learn.entity.TwoWheeler;
 import com.pk.hibernate.learn.entity.Vehicle;
 
 public class HibernateTest {
 	public static void main(String[] args) {
-		UserDetails userDetails = new UserDetails();
-		// userDetails.setUserId(2);
-		userDetails.setUserName("Suresh");
 
 		Vehicle vehicle = new Vehicle();
 		vehicle.setVehicleName("Car");
 		
-		Vehicle vehicle1 = new Vehicle();
-		vehicle1.setVehicleName("Suv");
+		TwoWheeler twoWheeler = new TwoWheeler();
+		twoWheeler.setVehicleName("Bike");
+		twoWheeler.setSteeringHandle("Bike Two Wheeler Handle");
 
-		userDetails.getVehicle().add(vehicle);
-		userDetails.getVehicle().add(vehicle1);
+		FourWheeler fourWheeler = new FourWheeler();
+		fourWheeler.setVehicleName("Porche");
+		fourWheeler.setSteeringWheel("Porche steering Handle");
 		
-
 		/*
 		 * Create Session Factory Object.
 		 */
@@ -38,8 +37,10 @@ public class HibernateTest {
 		// Be Ready For transaction
 		session.beginTransaction();
 		// Perform Transaction
-		session.persist(userDetails);
-	
+		session.save(vehicle);
+		session.save(twoWheeler);
+		session.save(fourWheeler);
+
 		// Save the Transaction Object
 		session.getTransaction().commit();
 		session.close();
