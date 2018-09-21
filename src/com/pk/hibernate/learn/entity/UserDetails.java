@@ -25,9 +25,7 @@ public class UserDetails {
 	private int userId;
 	// @Transient /* Wont allow to persist the field. */
 	private String userName;
-	@OneToMany
-	@JoinTable(name="USER_VEHICLE", joinColumns=@JoinColumn(name="USER_ID"),
-									inverseJoinColumns=@JoinColumn(name="VEHICLE_ID"))
+	@OneToMany(mappedBy="user")
 	private Collection<Vehicle> vehicle = new ArrayList<Vehicle>();
 
 	public Collection<Vehicle> getVehicle() {
