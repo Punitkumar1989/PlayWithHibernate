@@ -27,8 +27,6 @@ public class HibernateTest {
 		userDetails.getVehicle().add(vehicle);
 		userDetails.getVehicle().add(vehicle1);
 		
-		vehicle.getUser().add(userDetails);
-		vehicle1.getUser().add(userDetails);
 
 		/*
 		 * Create Session Factory Object.
@@ -40,9 +38,8 @@ public class HibernateTest {
 		// Be Ready For transaction
 		session.beginTransaction();
 		// Perform Transaction
-		session.save(userDetails);
-		session.save(vehicle);
-		session.save(vehicle1);
+		session.persist(userDetails);
+	
 		// Save the Transaction Object
 		session.getTransaction().commit();
 		session.close();
