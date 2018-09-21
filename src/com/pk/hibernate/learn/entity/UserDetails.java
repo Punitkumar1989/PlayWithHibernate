@@ -12,9 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,7 +23,7 @@ public class UserDetails {
 	private int userId;
 	// @Transient /* Wont allow to persist the field. */
 	private String userName;
-	@OneToMany(mappedBy="user")
+	@ManyToMany
 	private Collection<Vehicle> vehicle = new ArrayList<Vehicle>();
 
 	public Collection<Vehicle> getVehicle() {

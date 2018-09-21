@@ -27,8 +27,8 @@ public class HibernateTest {
 		userDetails.getVehicle().add(vehicle);
 		userDetails.getVehicle().add(vehicle1);
 		
-		vehicle.setUser(userDetails);
-		vehicle1.setUser(userDetails);
+		vehicle.getUser().add(userDetails);
+		vehicle1.getUser().add(userDetails);
 
 		/*
 		 * Create Session Factory Object.

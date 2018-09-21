@@ -1,25 +1,26 @@
 package com.pk.hibernate.learn.entity;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 
 @Entity(name="VEHICLE")
 public class Vehicle {
 	@Id @GeneratedValue
 	private int vehicleId;
 	private String vehicleName;
-	@ManyToOne
-	@JoinColumn(name="USER_ID")
-	private UserDetails user;
+	@ManyToMany(mappedBy="vehicle")
+	private Collection<UserDetails> user = new ArrayList<UserDetails>();
 
-	public UserDetails getUser() {
+	public Collection<UserDetails> getUser() {
 		return user;
 	}
 
-	public void setUser(UserDetails user) {
+	public void setUser(Collection<UserDetails> user) {
 		this.user = user;
 	}
 
