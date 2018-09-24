@@ -29,13 +29,13 @@ Email - punit.kumar1989@gmail.com
     	<property name="show_sql">true</property>
     	
     <!-- Drop and re-create the database schema on startup -->
-    	<property name="hbm2ddl.auto">create</property>
+    	<property name="hbm2ddl.auto">update</property>
     	
     <!-- Names the annotated entity class -->
     	<mapping class="com.pk.hibernate.learn.entity.UserDetails" />
-    	<mapping class="com.pk.hibernate.learn.entity.Vehicle" />
-    	<mapping class="com.pk.hibernate.learn.entity.TwoWheeler" />
-    	<mapping class="com.pk.hibernate.learn.entity.FourWheeler" />
+<!--     	<mapping class="com.pk.hibernate.learn.entity.Vehicle" /> -->
+<!--     	<mapping class="com.pk.hibernate.learn.entity.TwoWheeler" /> -->
+<!--     	<mapping class="com.pk.hibernate.learn.entity.FourWheeler" /> -->
       
     </session-factory>
 </hibernate-configuration>
