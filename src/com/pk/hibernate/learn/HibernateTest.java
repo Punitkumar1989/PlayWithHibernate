@@ -27,9 +27,9 @@ public class HibernateTest {
 //		query.setParameter(0, Integer.parseInt(minVal));
 	//	query.setParameter(1, "User 10");
 		
-		Query<UserDetails> query= session.createQuery("from UserDetails where userId > :userId and userName = :userName");
-		query.setParameter("userId", Integer.parseInt(minVal));
-		query.setParameter("userName", "User 10");
+		Query<UserDetails> query= session.getNamedQuery("UserDetails.byName");
+		query.setParameter(0, "User 10");
+		
 		
 		List<UserDetails> users = query.getResultList();
 		session.getTransaction().commit();
