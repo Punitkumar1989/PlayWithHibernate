@@ -10,10 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.hibernate.annotations.SelectBeforeUpdate;
-
 @Entity
-@SelectBeforeUpdate
 public class UserDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
