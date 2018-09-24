@@ -16,19 +16,22 @@ import org.hibernate.query.Query;
 import com.pk.hibernate.learn.entity.UserDetails;
 
 public class HibernateTest {
-	@SuppressWarnings("unchecked")
+	
 	public static void main(String[] args) {
 		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
-		Query<UserDetails> query= session.createQuery("from UserDetails where userId>1");
-		List<UserDetails> users = query.list();
+		
+		Query<String> query= session.createQuery("select userName from UserDetails");
+		query.setFirstResult(5);
+		query.setMaxResults(4);
+		List<String> users = query.getResultList();
 		session.getTransaction().commit();
 		session.close();
-		System.out.println("Size - "+users.size());
-		
-	
+		for(String u : users){
+			System.out.println("UserName is - "+u);
+		}
 	}
 }
 
