@@ -16,49 +16,21 @@ import com.pk.hibernate.learn.entity.Vehicle;
 
 public class HibernateTest {
 	public static void main(String[] args) {
-
 		
-		/*
-		 * Create Session Factory Object.
-		 */
-
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-		// Open a session using local session Factory object
 		Session session = sessionFactory.openSession();
-		// Be Ready For transaction
 		session.beginTransaction();
-		// Perform Transaction
-		/*
-		 * Insert Transaction using Hibernate
-		 * 
-		 * for (int i = 1; i <= 10; i++) {
-			UserDetails user = new UserDetails();
-			user.setUserName("User " + i);
-			session.save(user);
-		}*/
-		
-	/*	
-	 * 	Fetching the record using Hibernate
-	 * 
-	 * 	UserDetails user = session.get(UserDetails.class, 6);
-		System.out.println("User Id - "+user.getUserId()+"  User name - "+ user.getUserName());*/
-		
-/*		
- * 		Deleting the record using Hibernate
- * 
- * 		UserDetails user = session.get(UserDetails.class, 6);
-		session.delete(user);*/
-		
-		/*
-		 * Updating the record using Hibernate
-		 * 
-		 * UserDetails user = session.get(UserDetails.class, 4);
-		user.setUserName("Updated User");
-		session.update(user);*/
-		
-		// Save the Transaction Object
+		UserDetails user = session.get(UserDetails.class, 1);
 		session.getTransaction().commit();
 		session.close();
-
+		
+		user.setUserName("My Updated User");
+		
+		session = sessionFactory.openSession();
+		session.beginTransaction();
+		session.update(user);
+		
+		session.getTransaction().commit();
+		session.close();
 	}
 }
