@@ -8,15 +8,10 @@ package com.pk.hibernate.learn;
 
 import java.util.List;
 
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import com.pk.hibernate.learn.entity.UserDetails;
 
@@ -28,23 +23,20 @@ public class HibernateTest {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 
-//		Query<UserDetails> query= session.createQuery("from UserDetails where userId > ?0");// and userName = ?1");
-//		query.setParameter(0, Integer.parseInt(minVal));
-	//	query.setParameter(1, "User 10");
-		CriteriaBuilder builder = session.getCriteriaBuilder();
-		CriteriaQuery<UserDetails> criteria = builder.createQuery(UserDetails.class);
-		Root<UserDetails> rootObject = criteria.from(UserDetails.class);
-		Predicate likeRestrictions = builder.notLike(rootObject.get("userName"),"User%");
-		criteria.select(rootObject).where(likeRestrictions);
-		
-		TypedQuery<UserDetails> query = session.createQuery(criteria);
-		
-		List<UserDetails> users = query.getResultList();
+		Query<UserDetails> query = session.createQuery("from UserDetails user where user.userId=1");
+		query.setCacheable(true);
+		List<UserDetails> user = query.list();
 		session.getTransaction().commit();
 		session.close();
-		for(UserDetails u : users){
-			System.out.println("UserName is - "+u.getUserName());
-		}
+		
+		Session session2 = sessionFactory.openSession();
+		session2.beginTransaction();
+		Query<UserDetails> query2 = session2.createQuery("from UserDetails user where user.userId=1");
+		query2.setCacheable(true);
+		user = query2.list();;
+		session2.getTransaction().commit();
+		session2.close();
+	
 	}
 }
 
